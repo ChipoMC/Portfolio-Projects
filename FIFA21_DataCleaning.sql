@@ -154,3 +154,8 @@ FROM fifa21_raw_data
 Update fifa21_raw_data
 SET Height = (Convert(int,LEFT(Ltrim(Height),1))*30.48) +
 (convert(int,SUBSTRING(Height,CHARINDEX('''', Height)+1, 1)) * 2.54)
+
+---------------------------------------------------------------------------
+--remove unused columns
+ALTER TABLE fifa21_raw_data
+DROP COLUMN Loan_Date_End, LongName,playerUrl,photoUrl
